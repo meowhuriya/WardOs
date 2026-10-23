@@ -1,0 +1,38 @@
+[
+  {
+    "id": "doc-1",
+    "name": "Dr. Aarav Sharma",
+    "role": "doctor",
+    "pin_hash": "0a7a1c08208c47db422b5d292e374ab7a16223d7c164044dc7e8525a9845bed75c1abc90438ddcd85584bdb9419b44bbf983986ac62b0f89af24ebef4faee712",
+    "salt": "4a39021b3d1e322a97d44c0e88182cd4",
+    "failed_attempts": 0,
+    "locked_until": null
+  },
+  {
+    "id": "doc-2",
+    "name": "Dr. Priya Patel",
+    "role": "doctor",
+    "pin_hash": "31a461b9beb46115eafe9d1575846f8116515d6e58e63ce7751d2eceef705536547faea0654621a1ac4cf6010a912dd2d15a6e4a9d30144ed1ae3484287e3ed5",
+    "salt": "6c985a75b357ea3451f94e7ed655fbcd",
+    "failed_attempts": 5,
+    "locked_until": 1792766039249
+  },
+  {
+    "id": "nurse-1",
+    "name": "Nurse Ananya Rao",
+    "role": "nurse",
+    "pin_hash": "52b86bd92658e11f03d4329d72c5963b06bf8e5e89dfe1ed0218ec748d781c9c6dd205865f8631385726cd10c362fa72d236d5a4ed4ed49a20568b09609eff4b",
+    "salt": "8b887e11aa9b9c1fdab9ca560047f9c6",
+    "failed_attempts": 0,
+    "locked_until": null
+  },
+  {
+    "id": "nurse-2",
+    "name": "Nurse Rajesh Kumar",
+    "role": "nurse",
+    "pin_hash": "6069fb604a4f145afca5b550262cfd3af96b6dab067eb9d863661009f04da37e9a948afebf339b0235e45959a86bd255bfd0baac4ad05db7b70e2ed2dee0cc3a",
+    "salt": "91a70a30d4420bbd01f1dfe53fbb20c2",
+    "failed_attempts": 1,
+    "locked_until": null
+  }
+]

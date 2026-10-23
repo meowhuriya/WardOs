@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WardOS | Voice-First Hospital Ward Assistant (Alexa+ MCP)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Top Fictional Data Warning Banner -->
+  <div class="fictional-banner">
+    <div class="banner-content">
+      <span class="warning-icon">&#9888;</span>
+      <strong>DEMO USES FICTIONAL PATIENT DATA ONLY</strong>
+      <span class="divider">|</span>
+      <span>Administrative assistant only &bull; Never provides clinical advice, diagnosis, or drug dosing</span>
+    </div>
+    <div class="demo-launcher">
+      <button id="runDemoBtn" class="btn-demo" title="Run scripted 3-minute demo sequence">
+        <span class="play-icon">&#9654;</span> Run Interactive Demo
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Top Bar -->
+  <header class="top-bar">
+    <div class="logo-group">
+      <div class="logo-symbol">
+        <span class="cross">+</span>
+      </div>
+      <div class="logo-text">
+        <h1>WardOS</h1>
+        <div class="alexa-badge">
+          <span class="alexa-dot"></span>
+          <span>Simulated Alexa+ MCP</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ward Title -->
+    <div class="ward-title" id="wardTitleDisplay">
+      General Medical Ward 4B &bull; 20 Beds
+    </div>
+
+    <!-- Controls Group -->
+    <div class="header-controls">
+      <!-- Language Switcher -->
+      <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="hi">हिंदी</button>
+        <button class="lang-btn" data-lang="te">తెలుగు</button>
+      </div>
+
+      <!-- User & Role Profile -->
+      <div class="user-profile" id="userProfileBadge">
+        <div class="user-avatar" id="userAvatar">Dr</div>
+        <div class="user-info">
+          <span class="user-name" id="userNameDisplay">Dr. Aarav Sharma</span>
+          <span class="role-badge doctor" id="userRoleBadge">DOCTOR</span>
+        </div>
+        <button class="btn-icon" id="switchStaffBtn" title="Switch Staff Account">&#8646;</button>
+      </div>
+
+      <!-- Auto-Lock / Lock Now -->
+      <button class="btn-lock" id="lockNowBtn" title="Lock Screen Immediately">
+        <span class="lock-icon">&#128274;</span> Lock Now
+      </button>
+
+      <!-- Audit Drawer Toggle -->
+      <button class="btn-audit" id="auditDrawerBtn" title="View Audit & Security Log">
+        <span class="audit-icon">&#128221;</span> Audit Log
+      </button>
+    </div>
+  </header>
+
+  <!-- Metric Strip -->
+  <section class="metric-strip">
+    <div class="metric-card">
+      <div class="metric-label">Occupied Beds</div>
+      <div class="metric-val" id="metricBeds">14 / 20</div>
+      <div class="metric-sub" id="metricBedsSub">70% Capacity</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Open Tasks</div>
+      <div class="metric-val" id="metricOpenTasks">5</div>
+      <div class="metric-sub" id="metricOpenTasksSub">All roles</div>
+    </div>
+    <div class="metric-card urgent">
+      <div class="metric-label">Overdue Tasks</div>
+      <div class="metric-val" id="metricOverdueTasks">2</div>
+      <div class="metric-sub">Requires action</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Pending Reports</div>
+      <div class="metric-val" id="metricPendingReports">4</div>
+      <div class="metric-sub">Lab / Imaging / Consult</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Drafts For Approval</div>
+      <div class="metric-val" id="metricPendingDrafts">1</div>
+      <div class="metric-sub">Doctor sign-off</div>
+    </div>
+    <div class="metric-card highlight">
+      <div class="metric-label">Estimated Time Saved</div>
+      <div class="metric-val" id="metricTimeSaved">34m</div>
+      <div class="metric-sub">Estimated &bull; Voice & MCP</div>
+    </div>
+  </section>
+
+  <!-- Demo Caption Overlay Bar -->
+  <div class="demo-caption-bar" id="demoCaptionBar" style="display: none;">
+    <div class="demo-step-badge" id="demoStepBadge">STEP 1/15</div>
+    <div class="demo-caption-text" id="demoCaptionText">Starting Demo...</div>
+    <button class="btn-stop-demo" id="stopDemoBtn">&times; Exit Demo</button>
+  </div>
+
+  <!-- Main View Container -->
+  <main class="main-layout">
+    <!-- Left Column: Voice Assistant Panel & Rounds -->
+    <aside class="left-panel">
+      <!-- Voice Ring Console Card -->
+      <div class="card voice-card">
+        <div class="card-header">
+          <h2>Voice Console</h2>
+          <span class="badge live">MCP LIVE</span>
+        </div>
+
+        <div class="voice-centerpiece">
+          <div class="voice-ring-container" id="voiceRing">
+            <div class="voice-ring pulse-1"></div>
+            <div class="voice-ring pulse-2"></div>
+            <div class="voice-ring pulse-3"></div>
+            <button class="mic-button" id="micBtn" title="Click to speak (English, Hindi, or Telugu)">
+              <svg viewBox="0 0 24 24" class="mic-svg">
+                <path fill="currentColor" d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+                <path fill="currentColor" d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+              </svg>
+            </button>
+          </div>
+          <div class="voice-status" id="voiceStatus">Click mic or type to speak to WardOS</div>
+        </div>
+
+        <!-- Voice Text Input Fallback -->
+        <form class="voice-input-form" id="voiceForm">
+          <input type="text" id="voiceInput" placeholder='Try "morning brief" or "bed 4 CBC report pending"...' autocomplete="off">
+          <button type="submit" class="btn-send" id="voiceSendBtn">Send</button>
+        </form>
+
+        <!-- Quick Voice Command Suggestions -->
+        <div class="quick-prompts">
+          <button class="chip" data-cmd="give me the morning brief">Morning Brief</button>
+          <button class="chip" data-cmd="start ward rounds now">Start Rounds</button>
+          <button class="chip" data-cmd="agla patient kaun hai">अगला मरीज़</button>
+          <button class="chip" data-cmd="shift handover banao">Draft Handover</button>
+          <button class="chip" data-cmd="show overdue tasks">Overdue Tasks</button>
+        </div>
+
+        <!-- Realtime Voice & MCP Transcript Feed -->
+        <div class="transcript-feed" id="transcriptFeed">
+          <div class="transcript-item system">
+            <div class="transcript-meta">WardOS MCP Engine &bull; Ready</div>
+            <div class="transcript-bubble">Connected to MCP server over Streamable HTTP. Doctor mode active. Say "morning brief" to begin.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Start of Shift Morning Brief Player -->
+      <div class="card brief-card">
+        <div class="brief-header">
+          <div>
+            <h3>Start of Shift Brief</h3>
+            <p class="card-subtitle">One-click spoken audio briefing for incoming team</p>
+          </div>
+          <button class="btn-play-brief" id="playBriefBtn">
+            <span class="speaker-icon">&#128266;</span> Play Briefing
+          </button>
+        </div>
+        <div class="brief-preview" id="briefPreviewText">
+          Click "Play Briefing" to listen to current census, overdue tasks, pending diagnostic reports, and planned discharges.
+        </div>
+      </div>
+
+      <!-- Ward Rounds Active Card -->
+      <div class="card rounds-card" id="roundsCard">
+        <div class="card-header">
+          <h3>Active Ward Rounds</h3>
+          <span class="badge round-badge" id="roundProgressBadge">Patient 1 / 14</span>
+        </div>
+        <div class="round-patient-details" id="roundPatientDetails">
+          <div class="round-bed-chip" id="roundBed">Bed 1</div>
+          <div class="round-name" id="roundName">Ramesh Gupta (Age 58)</div>
+          <div class="round-diagnosis" id="roundDiagnosis">Admitted for routine post-appendectomy recovery observation</div>
+          <div class="round-admin-summary" id="roundAdminSummary">
+            <span>Tasks: <strong>1 open</strong></span> &bull; 
+            <span>Pending: <strong>1 lab report</strong></span> &bull; 
+            <span>Status: <strong class="chip-status occupied">occupied</strong></span>
+          </div>
+        </div>
+        <div class="round-controls">
+          <button class="btn-round-nav" id="prevRoundBtn">&larr; Previous</button>
+          <button class="btn-dictate" id="dictateNoteBtn">&#127908; Dictate Round Note</button>
+          <button class="btn-round-nav" id="nextRoundBtn">Next Patient &rarr;</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Right Column: Navigation Tabs & Board Views -->
+    <section class="right-panel">
+      <!-- Navigation Tabs -->
+      <nav class="view-tabs">
+        <button class="tab-btn active" data-tab="tab-ward">20-Bed Ward Board</button>
+        <button class="tab-btn" data-tab="tab-tasks">Tasks Board (<span id="taskCountBadge">5</span>)</button>
+        <button class="tab-btn" data-tab="tab-handover">Shift Handover (<span id="handoverStatusBadge">DRAFT</span>)</button>
+        <button class="tab-btn" data-tab="tab-pending">Diagnostics &amp; Discharges</button>
+      </nav>
+
+      <!-- TAB 1: 20-Bed Ward Board -->
+      <div class="tab-content active" id="tab-ward">
+        <div class="board-toolbar">
+          <div class="board-legend">
+            <span class="legend-item"><span class="dot occupied"></span> Occupied (14)</span>
+            <span class="legend-item"><span class="dot awaiting-discharge"></span> Awaiting Discharge (2)</span>
+            <span class="legend-item"><span class="dot awaiting-transfer"></span> Awaiting Transfer (1)</span>
+            <span class="legend-item"><span class="dot empty"></span> Empty (3)</span>
+          </div>
+          <button class="btn-secondary" id="admitPatientBtn">+ Admit Patient</button>
+        </div>
+        <div class="beds-grid" id="bedsGrid">
+          <!-- Dynamically populated 20 bed cards -->
+        </div>
+      </div>
+
+      <!-- TAB 2: Task Board -->
+      <div class="tab-content" id="tab-tasks">
+        <div class="task-toolbar">
+          <div class="filter-group">
+            <label>Filter Role:</label>
+            <select id="taskRoleFilter">
+              <option value="all">All Roles</option>
+              <option value="nurse">Nurse Only</option>
+              <option value="doctor">Doctor Only</option>
+            </select>
+          </div>
+          <button class="btn-secondary" id="addNewTaskBtn">+ Add New Task</button>
+        </div>
+
+        <div class="task-columns">
+          <!-- Overdue Column -->
+          <div class="task-column overdue-col">
+            <div class="col-header">
+              <h4>Overdue Tasks</h4>
+              <span class="badge overdue" id="overdueCountBadge">2</span>
+            </div>
+            <div class="task-list" id="overdueTaskList"></div>
+          </div>
+
+          <!-- Due This Shift Column -->
+          <div class="task-column due-col">
+            <div class="col-header">
+              <h4>Due This Shift</h4>
+              <span class="badge due" id="dueCountBadge">3</span>
+            </div>
+            <div class="task-list" id="dueTaskList"></div>
+          </div>
+
+          <!-- Completed Column -->
+          <div class="task-column done-col">
+            <div class="col-header">
+              <h4>Completed</h4>
+              <span class="badge done" id="doneCountBadge">1</span>
+            </div>
+            <div class="task-list" id="doneTaskList"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: Shift Handover -->
+      <div class="tab-content" id="tab-handover">
+        <div class="handover-container">
+          <div class="handover-header-card">
+            <div class="handover-info">
+              <div class="handover-title-row">
+                <h3>Shift Handover Document</h3>
+                <span class="badge-handover draft" id="handoverBadge">DRAFT - UNAPPROVED</span>
+              </div>
+              <p class="handover-meta" id="handoverMeta">
+                Shift: <strong>Morning to Evening</strong> &bull; Generated by Dr. Aarav Sharma &bull; Missing fields strictly marked <em>"Not stated"</em>
+              </p>
+            </div>
+            <div class="handover-actions">
+              <button class="btn-read-back" id="readBackHandoverBtn">
+                <span class="speaker-icon">&#128266;</span> Read Back Draft Aloud
+              </button>
+              <button class="btn-approve-handover" id="approveHandoverBtn" disabled title="Read back must be heard before confirming">
+                Confirm &amp; Approve Handover
+              </button>
+            </div>
+          </div>
+
+          <!-- Handover Read-Back Audio Progress Bar -->
+          <div class="readback-progress" id="readbackProgress" style="display: none;">
+            <div class="readback-label" id="readbackLabel">Speaking handover draft aloud for clinician verification...</div>
+            <div class="progress-bar-track">
+              <div class="progress-bar-fill" id="readbackProgressBar"></div>
+            </div>
+          </div>
+
+          <!-- Handover Patients List -->
+          <div class="handover-patients-list" id="handoverPatientsList">
+            <!-- Dynamically populated patient handover items -->
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 4: Diagnostics & Discharges -->
+      <div class="tab-content" id="tab-pending">
+        <div class="pending-split-view">
+          <!-- Pending Diagnostic Reports -->
+          <div class="pending-half">
+            <div class="card-header">
+              <h3>Outstanding Diagnostic Reports</h3>
+              <button class="btn-sm" id="addPendingReportBtn">+ Log Report</button>
+            </div>
+            <div class="pending-items-list" id="pendingItemsList"></div>
+          </div>
+
+          <!-- Discharge Checklists -->
+          <div class="pending-half">
+            <div class="card-header">
+              <h3>Administrative Discharge Workflows</h3>
+              <button class="btn-sm" id="startNewDischargeBtn">+ Start Discharge</button>
+            </div>
+            <div class="discharge-checklists-list" id="dischargeChecklistsList"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Sticky Safety Footer -->
+  <footer class="app-footer">
+    <div class="footer-notice">
+      Simulated Alexa+ experience powered by an MCP server. Not a medical device. Not for real patient data.
+    </div>
+  </footer>
+
+  <!-- MODALS -->
+
+  <!-- 1. Staff Login & Switcher Modal -->
+  <div class="modal-overlay" id="loginModal" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>WardOS Staff Login</h3>
+        <p class="modal-subtitle">Select staff account and enter PIN on-screen</p>
+      </div>
+      <div class="staff-picker" id="staffPicker">
+        <!-- 4 Fictional staff buttons -->
+      </div>
+      <div class="pin-entry-container">
+        <label>Enter 4-Digit Security PIN</label>
+        <div class="pin-display">
+          <span class="pin-dot" id="dot1"></span>
+          <span class="pin-dot" id="dot2"></span>
+          <span class="pin-dot" id="dot3"></span>
+          <span class="pin-dot" id="dot4"></span>
+        </div>
+        <div class="keypad-grid">
+          <button class="key-btn" data-val="1">1</button>
+          <button class="key-btn" data-val="2">2</button>
+          <button class="key-btn" data-val="3">3</button>
+          <button class="key-btn" data-val="4">4</button>
+          <button class="key-btn" data-val="5">5</button>
+          <button class="key-btn" data-val="6">6</button>
+          <button class="key-btn" data-val="7">7</button>
+          <button class="key-btn" data-val="8">8</button>
+          <button class="key-btn" data-val="9">9</button>
+          <button class="key-btn action" id="keypadClear">C</button>
+          <button class="key-btn" data-val="0">0</button>
+          <button class="key-btn action" id="keypadBackspace">&larr;</button>
+        </div>
+        <div class="login-feedback" id="loginFeedback"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Step-Up PIN Confirmation Modal -->
+  <div class="modal-overlay" id="stepUpModal" style="display: none;">
+    <div class="modal-card stepup-card">
+      <div class="modal-header">
+        <div class="shield-icon">&#128737;</div>
+        <h3>Step-Up PIN Authorization</h3>
+        <p class="modal-subtitle" id="stepUpActionDesc">A fresh on-screen PIN confirmation is required to authorize this sensitive action.</p>
+      </div>
+      <div class="pin-entry-container">
+        <div class="pin-display">
+          <span class="pin-dot" id="stepDot1"></span>
+          <span class="pin-dot" id="stepDot2"></span>
+          <span class="pin-dot" id="stepDot3"></span>
+          <span class="pin-dot" id="stepDot4"></span>
+        </div>
+        <div class="keypad-grid">
+          <button class="key-btn step-key" data-val="1">1</button>
+          <button class="key-btn step-key" data-val="2">2</button>
+          <button class="key-btn step-key" data-val="3">3</button>
+          <button class="key-btn step-key" data-val="4">4</button>
+          <button class="key-btn step-key" data-val="5">5</button>
+          <button class="key-btn step-key" data-val="6">6</button>
+          <button class="key-btn step-key" data-val="7">7</button>
+          <button class="key-btn step-key" data-val="8">8</button>
+          <button class="key-btn step-key" data-val="9">9</button>
+          <button class="key-btn action" id="stepClear">C</button>
+          <button class="key-btn step-key" data-val="0">0</button>
+          <button class="key-btn action" id="stepCancel">Cancel</button>
+        </div>
+        <div class="login-feedback" id="stepUpFeedback"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Auto-Lock Warning Modal -->
+  <div class="modal-overlay" id="autoLockWarningModal" style="display: none;">
+    <div class="modal-card warning-card">
+      <div class="warning-large-icon">&#9200;</div>
+      <h3>Auto-Lock Inactivity Warning</h3>
+      <p>No activity detected. To protect patient administrative privacy, WardOS will lock in:</p>
+      <div class="countdown-timer" id="lockCountdownSec">15</div>
+      <div class="modal-buttons">
+        <button class="btn-primary" id="stayActiveBtn">Stay Active</button>
+        <button class="btn-secondary" id="lockNowConfirmBtn">Lock Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Dictate Round Note Modal -->
+  <div class="modal-overlay" id="dictateNoteModal" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Dictate Round Note</h3>
+        <p class="modal-subtitle" id="dictateModalSubtitle">Status will be marked DRAFT until approved.</p>
+      </div>
+      <form id="dictateNoteForm">
+        <div class="form-group">
+          <label>Patient Bed</label>
+          <input type="text" id="noteBedInput" readonly>
+        </div>
+        <div class="form-group">
+          <label>Observations As Stated (Never inferred)</label>
+          <textarea id="noteObsInput" rows="3" placeholder="Dictate or type observations exactly as observed..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Plan As Stated (Administrative &amp; nursing care plan)</label>
+          <textarea id="notePlanInput" rows="3" placeholder="Dictate or type planned ward actions..."></textarea>
+        </div>
+        <div class="modal-buttons">
+          <button type="button" class="btn-secondary" id="cancelNoteBtn">Cancel</button>
+          <button type="submit" class="btn-primary" id="saveDraftNoteBtn">Save Draft Note</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 5. Audit Drawer (Sliding Side Panel) -->
+  <div class="audit-drawer" id="auditDrawer">
+    <div class="drawer-header">
+      <div class="drawer-title">
+        <h3>Security &amp; Audit Log</h3>
+        <span class="badge" id="auditCountBadge">50 entries</span>
+      </div>
+      <button class="btn-close-drawer" id="closeAuditDrawerBtn">&times;</button>
+    </div>
+    <div class="drawer-filter-bar">
+      <button class="filter-tab active" data-filter="all">All</button>
+      <button class="filter-tab" data-filter="admin">Admin Actions</button>
+      <button class="filter-tab" data-filter="security">Security Events</button>
+    </div>
+    <div class="audit-list" id="auditLogList">
+      <!-- Populated dynamically -->
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

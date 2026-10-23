@@ -1,0 +1,877 @@
+{
+  "ward_name": "General Male & Female Medical Ward 4B",
+  "total_beds": 20,
+  "patients": [
+    {
+      "id": "pat-1",
+      "name": "Ramesh Gupta",
+      "age": 58,
+      "bed": "Bed 1",
+      "admitted_at": "2026-10-22T02:28:59.082Z",
+      "diagnosis_as_stated": "Admitted for routine post-appendectomy recovery observation",
+      "status": "occupied"
+    },
+    {
+      "id": "pat-2",
+      "name": "Sunita Devi",
+      "age": 46,
+      "bed": "Bed 2",
+      "admitted_at": "2026-10-21T14:28:59.082Z",
+      "diagnosis_as_stated": "Dehydration and seasonal viral fever management",
+      "status": "occupied"
+    },
+    {
+      "id": "pat-3",
+      "name": "Venkat Rao",
+      "age": 62,
+      "bed": "Bed 3",
+      "admitted_at": "2026-10-20T14:28:59.082Z",
+      "diagnosis_as_stated": "Mild asthma exacerbation under observation",
+      "status": "occupied"
+    },
+    {
+      "id": "pat-4",
+      "name": "Lakshmi Narayana",
+      "age": 70,
+      "bed": "Bed 4",
+      "admitted_at": "2026-10-19T14:28:59.082Z",
+      "diagnosis_as_stated": "Orthopedic post-fracture rehab observation",
+      "status": "awaiting discharge",
+      "discharge_checklist": {
+        "summary_written": true,
+        "bill_cleared": true,
+        "medicines_handed_over": true,
+        "follow_up_date_given": false,
+        "transport_arranged": false
+      }
+    },
+    {
+      "id": "pat-5",
+      "name": "Anil Deshmukh",
+      "age": 39,
+      "bed": "Bed 5",
+      "admitted_at": "2026-10-22T18:28:59.082Z",
+      "diagnosis_as_stated": "Acute gastroenteritis hydration monitoring",
+      "status": "occupied"
+    },
+    {
+      "id": "pat-6",
+      "name": "Pooja Sharma",
+      "age": 28,
+      "bed": "Bed 6",
+      "admitted_at": "2026-10-22T23:28:59.082Z",
+      "diagnosis_as_stated": "Elective minor surgical observation",
+      "status": "occupied"
+    },
+    {
+      "id": "pat-7",
+      "name": "Mohammed Farooq",
+      "age": 52,
+      "bed": "Bed 7",
+      "admitted_at": "2026-10-20T02:28:59.082Z",
+      "diagnosis_as_stated": "Hypertension monitoring and medication adjustment",
+      "status": "awaiting discharge",
+      "discharge_checklist": {
+        "summary_written": true,
+        "bill_cleared": false,
+        "medicines_handed_over": false,
+        "follow_up_date_given": true,
+        "transport_arranged": false
+      }
+    },
+    {
+      "id": "pat-8",
+      "name": "Kavitha Reddy",
+      "age": 34,
+      "bed": "Bed 8",
+      "admitted_at": "2026-10-23T02:28:59.082Z",
+      "diagnosis_as_stated": "Urinary tract infection observation course",
+      "status": "occupied"
+    },
+    {
+      "id": "pat-9",
+      "name": "Suresh Patil",
+      "age": 65,
+      "bed": "Bed 9",
+      "admitted_at": "2026-10-21T02:28:59.082Z",
+      "diagnosis_as_stated": "Chronic kidney disease stage 3 routine electrolyte check",
+      "status": "occupied"
+    },
+    {
+      "id": "pat-10",
+      "name": "Meena Kumari",
+      "age": 50,
+      "bed": "Bed 10",
+      "admitted_at": "2026-10-22T14:28:59.082Z",
+      "diagnosis_as_stated": "Post-laparoscopic cholecystectomy day 2",
+      "status": "occupied"
+    },
+    {
+      "id": "pat-11",
+      "name": "Rajendra Prasad",
+      "age": 74,
+      "bed": "Bed 11",
+      "admitted_at": "2026-10-19T00:28:59.082Z",
+      "diagnosis_as_stated": "COPD chronic stable monitoring",
+      "status": "awaiting transfer"
+    },
+    {
+      "id": "pat-12",
+      "name": "Deepa Krishnan",
+      "age": 31,
+      "bed": "Bed 12",
+      "admitted_at": "2026-10-22T20:28:59.082Z",
+      "diagnosis_as_stated": "Migraine crisis symptom relief and rest",
+      "status": "occupied"
+    },
+    {
+      "id": "pat-13",
+      "name": "Harpreet Singh",
+      "age": 44,
+      "bed": "Bed 13",
+      "admitted_at": "2026-10-21T22:28:59.082Z",
+      "diagnosis_as_stated": "Cellulitis right lower leg IV line management",
+      "status": "occupied"
+    },
+    {
+      "id": "pat-14",
+      "name": "Swati Mukherjee",
+      "age": 22,
+      "bed": "Bed 14",
+      "admitted_at": "2026-10-23T06:28:59.082Z",
+      "diagnosis_as_stated": "Food poisoning rehydration protocol",
+      "status": "occupied"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1",
+      "patient_id": "pat-1",
+      "bed": "Bed 1",
+      "patient_name": "Ramesh Gupta",
+      "description": "Check surgical wound dressing and change gauze if soiled",
+      "assigned_role": "nurse",
+      "due_time": "2026-10-23T13:43:59.082Z",
+      "completed": true,
+      "created_at": "2026-10-23T12:28:59.082Z",
+      "created_by_role": "doctor",
+      "completed_at": "2026-10-23T15:03:27.259Z",
+      "completed_by": "Dr. Aarav Sharma",
+      "completed_by_role": "doctor"
+    },
+    {
+      "id": "task-2",
+      "patient_id": "pat-2",
+      "bed": "Bed 2",
+      "patient_name": "Sunita Devi",
+      "description": "Record evening intake/output chart for rehydration fluid balance",
+      "assigned_role": "nurse",
+      "due_time": "2026-10-23T15:28:59.082Z",
+      "completed": false,
+      "created_at": "2026-10-23T13:28:59.082Z",
+      "created_by_role": "doctor"
+    },
+    {
+      "id": "task-3",
+      "patient_id": "pat-3",
+      "bed": "Bed 3",
+      "patient_name": "Venkat Rao",
+      "description": "Verify oxygen flow rate setting on wall regulator",
+      "assigned_role": "nurse",
+      "due_time": "2026-10-23T14:13:59.082Z",
+      "completed": false,
+      "created_at": "2026-10-23T12:58:59.082Z",
+      "created_by_role": "doctor"
+    },
+    {
+      "id": "task-4",
+      "patient_id": "pat-4",
+      "bed": "Bed 4",
+      "patient_name": "Lakshmi Narayana",
+      "description": "Collect physiotherapy discharge certificate from rehab desk",
+      "assigned_role": "nurse",
+      "due_time": "2026-10-23T16:28:59.082Z",
+      "completed": false,
+      "created_at": "2026-10-23T13:58:59.082Z",
+      "created_by_role": "nurse"
+    },
+    {
+      "id": "task-5",
+      "patient_id": "pat-7",
+      "bed": "Bed 7",
+      "patient_name": "Mohammed Farooq",
+      "description": "Call billing department for final pharmacy clearance summary",
+      "assigned_role": "nurse",
+      "due_time": "2026-10-23T14:58:59.082Z",
+      "completed": false,
+      "created_at": "2026-10-23T14:08:59.082Z",
+      "created_by_role": "doctor"
+    },
+    {
+      "id": "task-6",
+      "patient_id": "pat-9",
+      "bed": "Bed 9",
+      "patient_name": "Suresh Patil",
+      "description": "Ensure morning fasting water restriction sign is placed",
+      "assigned_role": "nurse",
+      "due_time": "2026-10-23T12:58:59.082Z",
+      "completed": true,
+      "completed_at": "2026-10-23T13:58:59.082Z",
+      "completed_by": "Nurse Ananya Rao",
+      "completed_by_role": "nurse",
+      "created_at": "2026-10-23T11:28:59.082Z",
+      "created_by_role": "doctor"
+    },
+    {
+      "id": "task-1792767713176",
+      "patient_id": "pat-3",
+      "bed": "Bed 3",
+      "patient_name": "Venkat Rao",
+      "description": "verify oxygen flow rate setting",
+      "assigned_role": "nurse",
+      "due_time": "2026-10-23T16:01:53.176Z",
+      "completed": false,
+      "created_at": "2026-10-23T15:01:53.176Z",
+      "created_by_role": "doctor"
+    }
+  ],
+  "round_notes": [
+    {
+      "id": "note-1",
+      "patient_id": "pat-1",
+      "patient_name": "Ramesh Gupta",
+      "bed": "Bed 1",
+      "observations_as_stated": "Patient alert, resting comfortably, surgical site clean and dry",
+      "plan_as_stated": "Continue normal diet progression and ambulate with support this afternoon",
+      "status": "approved",
+      "created_at": "2026-10-23T11:28:59.082Z",
+      "created_by": "Dr. Aarav Sharma",
+      "created_by_role": "doctor",
+      "approved_at": "2026-10-23T11:38:59.082Z",
+      "approved_by": "Dr. Aarav Sharma"
+    },
+    {
+      "id": "note-2",
+      "patient_id": "pat-4",
+      "patient_name": "Lakshmi Narayana",
+      "bed": "Bed 4",
+      "observations_as_stated": "Physiotherapy mobility milestone achieved, walking with walker",
+      "plan_as_stated": "Process discharge paperwork once family arrives at 16:00",
+      "status": "approved",
+      "created_at": "2026-10-23T11:08:59.082Z",
+      "created_by": "Dr. Priya Patel",
+      "created_by_role": "doctor",
+      "approved_at": "2026-10-23T11:13:59.082Z",
+      "approved_by": "Dr. Priya Patel"
+    },
+    {
+      "id": "note-1792767705613",
+      "patient_id": "pat-1",
+      "patient_name": "Ramesh Gupta",
+      "bed": "Bed 1",
+      "observations_as_stated": "alert and stable plan ambulate in evening",
+      "plan_as_stated": "ambulate in evening",
+      "status": "draft",
+      "created_at": "2026-10-23T15:01:45.613Z",
+      "created_by": "Dr. Aarav Sharma",
+      "created_by_role": "doctor"
+    }
+  ],
+  "pending_items": [
+    {
+      "id": "pend-1",
+      "patient_id": "pat-1",
+      "patient_name": "Ramesh Gupta",
+      "bed": "Bed 1",
+      "type": "lab",
+      "description": "Complete Blood Count (CBC) post-op check",
+      "status": "received",
+      "created_at": "2026-10-23T11:28:59.082Z",
+      "received_at": "2026-10-23T15:01:57.210Z",
+      "received_by_role": "doctor"
+    },
+    {
+      "id": "pend-2",
+      "patient_id": "pat-3",
+      "patient_name": "Venkat Rao",
+      "bed": "Bed 3",
+      "type": "imaging",
+      "description": "Repeat Chest X-ray portable PA view",
+      "status": "pending",
+      "created_at": "2026-10-23T10:28:59.082Z"
+    },
+    {
+      "id": "pend-3",
+      "patient_id": "pat-5",
+      "patient_name": "Anil Deshmukh",
+      "bed": "Bed 5",
+      "type": "lab",
+      "description": "Serum electrolytes report from central biochemistry",
+      "status": "pending",
+      "created_at": "2026-10-23T13:28:59.082Z"
+    },
+    {
+      "id": "pend-4",
+      "patient_id": "pat-7",
+      "patient_name": "Mohammed Farooq",
+      "bed": "Bed 7",
+      "type": "document",
+      "description": "Discharge summary counter-signature from attending physician",
+      "status": "pending",
+      "created_at": "2026-10-23T13:43:59.082Z"
+    },
+    {
+      "id": "pend-5",
+      "patient_id": "pat-9",
+      "patient_name": "Suresh Patil",
+      "bed": "Bed 9",
+      "type": "consult",
+      "description": "Nephrology routine review notes",
+      "status": "received",
+      "created_at": "2026-10-23T09:28:59.082Z",
+      "received_at": "2026-10-23T12:58:59.082Z",
+      "received_by_role": "doctor"
+    }
+  ],
+  "handovers": [
+    {
+      "id": "ho-1792767729807",
+      "from_shift": "Morning",
+      "to_shift": "Evening",
+      "created_at": "2026-10-23T15:02:09.807Z",
+      "created_by": "Dr. Aarav Sharma",
+      "created_by_role": "doctor",
+      "status": "draft",
+      "patients": [
+        {
+          "patient_id": "pat-1",
+          "bed": "Bed 1",
+          "name": "Ramesh Gupta",
+          "approved_round_note_as_stated": "Observations: Patient alert, resting comfortably, surgical site clean and dry | Plan: Continue normal diet progression and ambulate with support this afternoon",
+          "open_tasks": [
+            "Check surgical wound dressing and change gauze if soiled"
+          ],
+          "pending_items": [
+            "None"
+          ],
+          "discharge_status": "Not started"
+        },
+        {
+          "patient_id": "pat-2",
+          "bed": "Bed 2",
+          "name": "Sunita Devi",
+          "approved_round_note_as_stated": "Not stated",
+          "open_tasks": [
+            "Record evening intake/output chart for rehydration fluid balance"
+          ],
+          "pending_items": [
+            "None"
+          ],
+          "discharge_status": "Not started"
+        },
+        {
+          "patient_id": "pat-3",
+          "bed": "Bed 3",
+          "name": "Venkat Rao",
+          "approved_round_note_as_stated": "Not stated",
+          "open_tasks": [
+            "Verify oxygen flow rate setting on wall regulator",
+            "verify oxygen flow rate setting"
+          ],
+          "pending_items": [
+            "IMAGING: Repeat Chest X-ray portable PA view"
+          ],
+          "discharge_status": "Not started"
+        },
+        {
+          "patient_id": "pat-4",
+          "bed": "Bed 4",
+          "name": "Lakshmi Narayana",
+          "approved_round_note_as_stated": "Observations: Physiotherapy mobility milestone achieved, walking with walker | Plan: Process discharge paperwork once family arrives at 16:00",
+          "open_tasks": [
+            "Collect physiotherapy discharge certificate from rehab desk"
+          ],
+          "pending_items": [
+            "None"
+          ],
+          "discharge_status": "3/5 items complete (Awaiting discharge)"
+        },
+        {
+          "patient_id": "pat-5",
+          "bed": "Bed 5",
+          "name": "Anil Deshmukh",
+          "approved_round_note_as_stated": "Not stated",
+          "open_tasks": [
+            "None"
+          ],
+          "pending_items": [
+            "LAB: Serum electrolytes report from central biochemistry"
+          ],
+          "discharge_status": "Not started"
+        },
+        {
+          "patient_id": "pat-6",
+          "bed": "Bed 6",
+          "name": "Pooja Sharma",
+          "approved_round_note_as_stated": "Not stated",
+          "open_tasks": [
+            "None"
+          ],
+          "pending_items": [
+            "None"
+          ],
+          "discharge_status": "Not started"
+        },
+        {
+          "patient_id": "pat-7",
+          "bed": "Bed 7",
+          "name": "Mohammed Farooq",
+          "approved_round_note_as_stated": "Not stated",
+          "open_tasks": [
+            "Call billing department for final pharmacy clearance summary"
+          ],
+          "pending_items": [
+            "DOCUMENT: Discharge summary counter-signature from attending physician"
+          ],
+          "discharge_status": "2/5 items complete (Awaiting discharge)"
+        },
+        {
+          "patient_id": "pat-8",
+          "bed": "Bed 8",
+          "name": "Kavitha Reddy",
+          "approved_round_note_as_stated": "Not stated",
+          "open_tasks": [
+            "None"
+          ],
+          "pending_items": [
+            "None"
+          ],
+          "discharge_status": "Not started"
+        },
+        {
+          "patient_id": "pat-9",
+          "bed": "Bed 9",
+          "name": "Suresh Patil",
+          "approved_round_note_as_stated": "Not stated",
+          "open_tasks": [
+            "None"
+          ],
+          "pending_items": [
+            "None"
+          ],
+          "discharge_status": "Not started"
+        },
+        {
+          "patient_id": "pat-10",
+          "bed": "Bed 10",
+          "name": "Meena Kumari",
+          "approved_round_note_as_stated": "Not stated",
+          "open_tasks": [
+            "None"
+          ],
+          "pending_items": [
+            "None"
+          ],
+          "discharge_status": "Not started"
+        },
+        {
+          "patient_id": "pat-11",
+          "bed": "Bed 11",
+          "name": "Rajendra Prasad",
+          "approved_round_note_as_stated": "Not stated",
+          "open_tasks": [
+            "None"
+          ],
+          "pending_items": [
+            "None"
+          ],
+          "discharge_status": "Not started"
+        },
+        {
+          "patient_id": "pat-12",
+          "bed": "Bed 12",
+          "name": "Deepa Krishnan",
+          "approved_round_note_as_stated": "Not stated",
+          "open_tasks": [
+            "None"
+          ],
+          "pending_items": [
+            "None"
+          ],
+          "discharge_status": "Not started"
+        },
+        {
+          "patient_id": "pat-13",
+          "bed": "Bed 13",
+          "name": "Harpreet Singh",
+          "approved_round_note_as_stated": "Not stated",
+          "open_tasks": [
+            "None"
+          ],
+          "pending_items": [
+            "None"
+          ],
+          "discharge_status": "Not started"
+        },
+        {
+          "patient_id": "pat-14",
+          "bed": "Bed 14",
+          "name": "Swati Mukherjee",
+          "approved_round_note_as_stated": "Not stated",
+          "open_tasks": [
+            "None"
+          ],
+          "pending_items": [
+            "None"
+          ],
+          "discharge_status": "Not started"
+        }
+      ],
+      "read_back_confirmed": false
+    },
+    {
+      "id": "ho-previous",
+      "from_shift": "Night",
+      "to_shift": "Morning",
+      "created_at": "2026-10-23T06:28:59.082Z",
+      "created_by": "Dr. Priya Patel",
+      "created_by_role": "doctor",
+      "status": "approved",
+      "read_back_confirmed": true,
+      "approved_at": "2026-10-23T06:38:59.082Z",
+      "approved_by": "Dr. Aarav Sharma",
+      "patients": [
+        {
+          "patient_id": "pat-1",
+          "bed": "Bed 1",
+          "name": "Ramesh Gupta",
+          "approved_round_note_as_stated": "Patient alert, resting comfortably, surgical site clean and dry",
+          "open_tasks": [
+            "Check surgical wound dressing and change gauze if soiled"
+          ],
+          "pending_items": [
+            "Complete Blood Count (CBC) post-op check"
+          ],
+          "discharge_status": "Not started"
+        },
+        {
+          "patient_id": "pat-4",
+          "bed": "Bed 4",
+          "name": "Lakshmi Narayana",
+          "approved_round_note_as_stated": "Physiotherapy mobility milestone achieved, walking with walker",
+          "open_tasks": [
+            "Collect physiotherapy discharge certificate from rehab desk"
+          ],
+          "pending_items": [
+            "None"
+          ],
+          "discharge_status": "3/5 checklist items completed (awaiting follow-up date and transport)"
+        }
+      ]
+    }
+  ],
+  "audit_log": [
+    {
+      "id": "audit-1792781460073-apnd7",
+      "timestamp": "2026-10-23T18:51:00.073Z",
+      "category": "security",
+      "action": "login_success",
+      "role": "doctor",
+      "details": {
+        "staff_id": "doc-1",
+        "role": "doctor"
+      }
+    },
+    {
+      "id": "audit-1792781291118-89p9f",
+      "timestamp": "2026-10-23T18:48:11.118Z",
+      "category": "security",
+      "action": "session_locked",
+      "role": "doctor",
+      "details": {
+        "staff_id": "doc-1"
+      }
+    },
+    {
+      "id": "audit-1792781109349-16njl",
+      "timestamp": "2026-10-23T18:45:09.349Z",
+      "category": "security",
+      "action": "login_success",
+      "role": "doctor",
+      "details": {
+        "staff_id": "doc-1",
+        "role": "doctor"
+      }
+    },
+    {
+      "id": "audit-1792767807259-dqr3s",
+      "timestamp": "2026-10-23T15:03:27.259Z",
+      "category": "admin",
+      "action": "complete_task",
+      "role": "doctor",
+      "staff_id": "doc-1",
+      "staff_name": "Dr. Aarav Sharma",
+      "original_text": "complete task task-1",
+      "details": {
+        "task_id": "task-1",
+        "bed": "Bed 1",
+        "description": "Check surgical wound dressing and change gauze if soiled"
+      }
+    },
+    {
+      "id": "audit-1792767748614-9mu3x",
+      "timestamp": "2026-10-23T15:02:28.614Z",
+      "category": "security",
+      "action": "step_up_success",
+      "role": "doctor",
+      "details": {
+        "staff_id": "doc-1",
+        "action": "pin_verified_within_60s"
+      }
+    },
+    {
+      "id": "audit-1792767734348-4y50b",
+      "timestamp": "2026-10-23T15:02:14.348Z",
+      "category": "security",
+      "action": "medical_advice_refusal",
+      "role": "doctor",
+      "original_text": "What antibiotic should I prescribe for Bed 4?",
+      "details": {
+        "prompt_text": "What antibiotic should I prescribe for Bed 4?",
+        "reason": "Administrative scope guardrail: Query requests clinical advice, diagnosis, dosing, or lab interpretation."
+      }
+    },
+    {
+      "id": "audit-1792767730897-omnz6",
+      "timestamp": "2026-10-23T15:02:10.897Z",
+      "category": "security",
+      "action": "step_up_failed",
+      "role": "doctor",
+      "details": {
+        "staff_id": "doc-1",
+        "error": "Incorrect PIN"
+      }
+    },
+    {
+      "id": "audit-1792767729808-8pz6e",
+      "timestamp": "2026-10-23T15:02:09.808Z",
+      "category": "admin",
+      "action": "draft_handover",
+      "role": "doctor",
+      "staff_id": "doc-1",
+      "staff_name": "Dr. Aarav Sharma",
+      "original_text": "draft shift handover",
+      "details": {
+        "handover_id": "ho-1792767729807",
+        "from_shift": "Morning",
+        "to_shift": "Evening",
+        "patient_count": 14
+      }
+    },
+    {
+      "id": "audit-1792767717210-44rmu",
+      "timestamp": "2026-10-23T15:01:57.210Z",
+      "category": "admin",
+      "action": "mark_item_received",
+      "role": "doctor",
+      "staff_id": "doc-1",
+      "staff_name": "Dr. Aarav Sharma",
+      "original_text": "CBC report received for Bed 1",
+      "details": {
+        "item_id": "pend-1",
+        "bed": "Bed 1",
+        "description": "Complete Blood Count (CBC) post-op check"
+      }
+    },
+    {
+      "id": "audit-1792767713176-43wl3",
+      "timestamp": "2026-10-23T15:01:53.176Z",
+      "category": "admin",
+      "action": "add_task",
+      "role": "doctor",
+      "staff_id": "doc-1",
+      "staff_name": "Dr. Aarav Sharma",
+      "original_text": "add task for bed 3 verify oxygen flow rate setting",
+      "details": {
+        "task_id": "task-1792767713176",
+        "bed": "Bed 3",
+        "description": "verify oxygen flow rate setting",
+        "assigned_to": "nurse"
+      }
+    },
+    {
+      "id": "audit-1792767705613-yl6ds",
+      "timestamp": "2026-10-23T15:01:45.613Z",
+      "category": "admin",
+      "action": "draft_round_note",
+      "role": "doctor",
+      "staff_id": "doc-1",
+      "staff_name": "Dr. Aarav Sharma",
+      "original_text": "draft round note for bed 1 observations alert and stable plan ambulate in evening",
+      "details": {
+        "note_id": "note-1792767705613",
+        "patient_id": "pat-1",
+        "bed": "Bed 1"
+      }
+    },
+    {
+      "id": "audit-1792767698041-egzpw",
+      "timestamp": "2026-10-23T15:01:38.041Z",
+      "category": "admin",
+      "action": "start_rounds",
+      "role": "doctor",
+      "staff_id": "doc-1",
+      "staff_name": "Dr. Aarav Sharma",
+      "original_text": "start ward rounds now",
+      "details": {
+        "starting_patient_id": "pat-1",
+        "bed": "Bed 1"
+      }
+    },
+    {
+      "id": "audit-1792767674015-rnqlk",
+      "timestamp": "2026-10-23T15:01:14.015Z",
+      "category": "admin",
+      "action": "start_rounds",
+      "role": "doctor",
+      "staff_id": "doc-1",
+      "staff_name": "Dr. Aarav Sharma",
+      "original_text": "start ward rounds now",
+      "details": {
+        "starting_patient_id": "pat-1",
+        "bed": "Bed 1"
+      }
+    },
+    {
+      "id": "audit-1792767515610-dmykn",
+      "timestamp": "2026-10-23T14:58:35.610Z",
+      "category": "admin",
+      "action": "start_rounds",
+      "role": "doctor",
+      "staff_id": "doc-1",
+      "staff_name": "Dr. Aarav Sharma",
+      "original_text": "start ward rounds now",
+      "details": {
+        "starting_patient_id": "pat-1",
+        "bed": "Bed 1"
+      }
+    },
+    {
+      "id": "audit-1792767423914-zjgvn",
+      "timestamp": "2026-10-23T14:57:03.914Z",
+      "category": "security",
+      "action": "login_success",
+      "role": "doctor",
+      "details": {
+        "staff_id": "doc-1",
+        "role": "doctor"
+      }
+    },
+    {
+      "id": "audit-1792767421005-jq5gy",
+      "timestamp": "2026-10-23T14:57:01.005Z",
+      "category": "security",
+      "action": "session_locked",
+      "role": "doctor",
+      "details": {
+        "staff_id": "doc-1"
+      }
+    },
+    {
+      "id": "audit-1792767408133-hiuke",
+      "timestamp": "2026-10-23T14:56:48.133Z",
+      "category": "security",
+      "action": "login_success",
+      "role": "doctor",
+      "details": {
+        "staff_id": "doc-1",
+        "role": "doctor"
+      }
+    },
+    {
+      "id": "audit-1792767403867-etl4z",
+      "timestamp": "2026-10-23T14:56:43.867Z",
+      "category": "security",
+      "action": "login_failed",
+      "role": "system",
+      "details": {
+        "staff_id": "nurse-2",
+        "error": "Incorrect PIN. 4 attempts remaining before account lockout."
+      }
+    },
+    {
+      "id": "audit-1792767389144-b819r",
+      "timestamp": "2026-10-23T14:56:29.144Z",
+      "category": "security",
+      "action": "login_failed",
+      "role": "system",
+      "details": {
+        "staff_id": "doc-1",
+        "error": "Incorrect PIN. 4 attempts remaining before account lockout."
+      }
+    },
+    {
+      "id": "audit-1792765739104-hlqny",
+      "timestamp": "2026-10-23T14:28:59.104Z",
+      "category": "security",
+      "action": "permission_denied",
+      "role": "nurse",
+      "details": {
+        "error": "Permission denied: Action not permitted for role 'nurse'. Required: doctor",
+        "tool": "approve_handover"
+      }
+    },
+    {
+      "id": "audit-1792765739102-cuagt",
+      "timestamp": "2026-10-23T14:28:59.102Z",
+      "category": "security",
+      "action": "permission_denied",
+      "role": "nurse",
+      "details": {
+        "error": "Permission denied: Action not permitted for role 'nurse'. Required: doctor",
+        "tool": "approve_handover"
+      }
+    },
+    {
+      "id": "audit-seed-1",
+      "timestamp": "2026-10-23T06:28:59.082Z",
+      "category": "admin",
+      "action": "approve_handover",
+      "role": "doctor",
+      "staff_name": "Dr. Aarav Sharma",
+      "original_text": "confirm and approve morning shift handover",
+      "details": {
+        "handover_id": "ho-previous",
+        "from_shift": "Night",
+        "to_shift": "Morning"
+      }
+    },
+    {
+      "id": "audit-seed-2",
+      "timestamp": "2026-10-23T12:28:59.082Z",
+      "category": "admin",
+      "action": "add_task",
+      "role": "doctor",
+      "staff_name": "Dr. Aarav Sharma",
+      "original_text": "add task for bed 1 wound dressing check",
+      "details": {
+        "bed": "Bed 1",
+        "task_id": "task-1"
+      }
+    },
+    {
+      "id": "audit-seed-3",
+      "timestamp": "2026-10-23T13:58:59.082Z",
+      "category": "admin",
+      "action": "complete_task",
+      "role": "nurse",
+      "staff_name": "Nurse Ananya Rao",
+      "original_text": "mark fasting restriction task done for bed 9",
+      "details": {
+        "task_id": "task-6"
+      }
+    }
+  ],
+  "estimated_time_saved_minutes": 48,
+  "current_round_index": 11
+}
