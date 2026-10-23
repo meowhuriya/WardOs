@@ -572,6 +572,27 @@
   ],
   "audit_log": [
     {
+      "id": "audit-1792781676052-s325f",
+      "timestamp": "2026-10-23T18:54:36.052Z",
+      "category": "security",
+      "action": "login_success",
+      "role": "doctor",
+      "details": {
+        "staff_id": "doc-1",
+        "role": "doctor"
+      }
+    },
+    {
+      "id": "audit-1792781587440-2tzqk",
+      "timestamp": "2026-10-23T18:53:07.440Z",
+      "category": "security",
+      "action": "session_locked",
+      "role": "doctor",
+      "details": {
+        "staff_id": "doc-1"
+      }
+    },
+    {
       "id": "audit-1792781460073-apnd7",
       "timestamp": "2026-10-23T18:51:00.073Z",
       "category": "security",
